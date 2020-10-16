@@ -1,12 +1,12 @@
 package Logic;
 
 public class Puzzle {
-    private int phase;
-    private String challengeText;
-    private String solvedText;
-    private String rewardText;
-    private String solution;
-    private String challengeName;
+    private int phase;  //phase of the puzzle, 0 is unsolved, 1 is solved, 2 means its not a puzzle but an examinable object.
+    private String challengeText;   //the 'question' that gets output to the user.
+    private String solvedText;  //solvedText is what the user sees when they try to examine a puzzle that has already been solved
+    private String rewardText;  //reward text is what the user sees when they correctly solve a puzzle
+    private String solution;    //the solution for the puzzle
+    private String challengeName;   //the name of the puzzle, used for the '2. examine ______' part of the output when a user is selecting a puzzle to examine.
 
     public Puzzle(int roomNumber, int puzzleNumber) {
         phase = 0;
@@ -64,7 +64,7 @@ public class Puzzle {
     public String getSolution() {
         return solution;
     }
-    
+
     //setter methods
     public void setNewPhase(int newPhase) {
         phase = newPhase;

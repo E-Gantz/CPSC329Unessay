@@ -1,9 +1,11 @@
 package Logic;
 
 public class PuzzleList {
+    //list of puzzles, these can be hard coded instead of using IO because in a real escape room the puzzles are not changed.
     Puzzle r0p1;
     Puzzle r0p2;
 
+    //constructor for the puzzleList object, sets the puzzles according to which room is being constructed.
     public PuzzleList(int roomNumber) {
         if (roomNumber == 0) {
             r0p1 = new Puzzle(roomNumber, 0);
@@ -22,6 +24,7 @@ public class PuzzleList {
         
     }
 
+    //sets the phase of a puzzle, 0 = unsolved, 1 = solved, 2 = examinable object that isnt a puzzle.
     public void setPhase(int roomNumber, int puzzleChoice, int newPhase){
         if (roomNumber == 0 && puzzleChoice == 1) {
             r0p1.setNewPhase(1);
@@ -31,6 +34,10 @@ public class PuzzleList {
         }
     }
 
+
+
+
+    //getter methods
     public int getPhase(int roomNumber, int puzzleChoice) {
         if (roomNumber == 0 && puzzleChoice == 1) {
             return r0p1.getPhase();
