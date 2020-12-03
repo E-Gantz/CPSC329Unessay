@@ -1,15 +1,20 @@
 package Logic;
 
 public class PuzzleList {
-    //list of puzzles, these can be hard coded instead of using IO because in a real escape room the puzzles are not changed.
-    Puzzle r0p1;
-    Puzzle r0p2;
+    //list of puzzles, these can be hard coded instead of using IO because in a real escape room the puzzles are not changed, as they are physically built in a space.
+    //list of puzzles, p0 to px, where a room has x puzzles in it, puzzle 0 is a default puzzle used in case of error.
+    Puzzle p0;
+    Puzzle p1;
+    Puzzle p2;
+    Puzzle p3;
 
     //constructor for the puzzleList object, sets the puzzles according to which room is being constructed.
     public PuzzleList(int roomNumber) {
+        p0 = new Puzzle(0);
         if (roomNumber == 0) {
-            r0p1 = new Puzzle(roomNumber, 0);
-            r0p2 = new Puzzle(roomNumber, 1);
+            p1 = new Puzzle(roomNumber, 1);
+            p2 = new Puzzle(roomNumber, 2);
+            p3 = new Puzzle(roomNumber, 3);
         }
         else if (roomNumber == 1) {
 
@@ -24,80 +29,18 @@ public class PuzzleList {
         
     }
 
-    //sets the phase of a puzzle, 0 = unsolved, 1 = solved, 2 = examinable object that isnt a puzzle.
-    public void setPhase(int roomNumber, int puzzleChoice, int newPhase){
-        if (roomNumber == 0 && puzzleChoice == 1) {
-            r0p1.setNewPhase(1);
+    //returns the chosen puzzle in this room.
+    public Puzzle getPuzzle(int puzzleChoice) {
+        if (puzzleChoice == 1) {
+            return p1;
         }
-        else if (roomNumber == 0 && puzzleChoice == 2) {
-            r0p2.setNewPhase(1);
+        else if (puzzleChoice == 2) {
+            return p2;
         }
+        else if (puzzleChoice == 3) {
+            return p3;
+        }
+        else {return p0;}
     }
-
-
-
-
-    //getter methods
-    public int getPhase(int roomNumber, int puzzleChoice) {
-        if (roomNumber == 0 && puzzleChoice == 1) {
-            return r0p1.getPhase();
-        }
-        else if (roomNumber == 0 && puzzleChoice == 2) {
-            return r0p2.getPhase();
-        }
-        else {return 0;}
-    }
-
-    public String getSolvedText(int roomNumber, int puzzleChoice) {
-        if (roomNumber == 0 && puzzleChoice == 1) {
-            return r0p1.getSolvedText();
-        }
-        else if (roomNumber == 0 && puzzleChoice == 2) {
-            return r0p2.getSolvedText();
-        }
-        else {return "whoops";}
-    }
-
-    public String getText(int roomNumber, int puzzleChoice) {
-        if (roomNumber == 0 && puzzleChoice == 1) {
-            return r0p1.getPuzzleText();
-        }
-        else if (roomNumber == 0 && puzzleChoice == 2) {
-            return r0p2.getPuzzleText();
-        }
-        else {return "whoops";}
-    }
-
-    public String getName(int roomNumber, int puzzleNumber) {
-        if (roomNumber == 0 && puzzleNumber == 1) {
-            return r0p1.getChallengeName();
-        }
-        else if (roomNumber == 0 && puzzleNumber == 2) {
-            return r0p2.getChallengeName();
-        }
-        else {return "whoops";}
-
-    }
-
-    public String getChallenge(int roomNumber, int puzzleChoice) {
-        if (roomNumber == 0 && puzzleChoice == 1) {
-            return r0p1.getChallengeText();
-        }
-        else if (roomNumber == 0 && puzzleChoice == 2) {
-            return r0p2.getChallengeText();
-        }
-        else {return "whoops";}
-    }
-
-    public String getSolution(int roomNumber, int puzzleChoice) {
-        if (roomNumber == 0 && puzzleChoice == 1) {
-            return r0p1.getSolution();
-        }
-        else if (roomNumber == 0 && puzzleChoice == 2) {
-            return r0p2.getSolution();
-        }
-        else {return "whoops";}
-    }
-
 
 }

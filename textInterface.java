@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import Logic.*;
+import java.io.*;
 
 public class textInterface {
     private Room currentRoom;
@@ -24,7 +25,7 @@ public class textInterface {
 	public void play() {
 		boolean stillPlaying = true;
 		boolean roomFinished = false;
-		entryMessage(roomNumber);
+		entryMessage();
 		while (stillPlaying == true) {
 			//print all the puzzle options.
 			printOptions();
@@ -39,12 +40,12 @@ public class textInterface {
 			if (puzzleChoice == (currentRoom.puzzleMax) + 2) {
 				stillPlaying = false;
 			}
-			//if user chose the exit the room option but they havent completed all the puzzles, tell them they cant exit
+			//if user chose the exit the room option but they havent completed all the puzzles, tell them they cannot exit
 			else if (puzzleChoice == (currentRoom.puzzleMax) + 1 ) {
 				if (roomFinished == false) {
 					System.out.println("you cannot currently exit the room");
 				}
-				//if they have completed all the puzzles and are in the demo room, room 0, or the last room, room 3, then they have won and get to escape
+				//if they have completed all the puzzles and are in the demo room, room 0, or the last room, (currently) room 3, then they have won and get to escape
 				else if (roomNumber == 0 || roomNumber == 3) {
 					System.out.println("You were able to exit the room.");
 					System.out.println("Congratulations, you have escaped!");
@@ -53,18 +54,19 @@ public class textInterface {
 				//if they have completed all the puzzles but arent in the demo room or last room, move to the next room, print the intro message for the next room.
 				else {
 					roomNumber++;
-					entryMessage(roomNumber);
+					entryMessage();
+					//set room = new room(new roomnumber)
 				}
 			}
 			//if user chose a puzzle option that wasnt give up or try to move to the next room, then they chose to examine a puzzle.
 			else {
 				//if they haven't already completed the puzzle then let them try
-				if (currentRoom.roomPuzzles.getPhase(roomNumber, puzzleChoice) == 0) {
+				if (currentRoom.roomPuzzles.getPuzzle(puzzleChoice).getPhase() == 0) {
 					tryPuzzle(puzzleChoice);
 					roomFinished = !(completionTest());
 				}
 				//if the user is examining an object that isnt a puzzle but is just something to look at, then just print the description.
-				else if (currentRoom.roomPuzzles.getPhase(roomNumber, puzzleChoice) == 2) {
+				else if (currentRoom.roomPuzzles.getPuzzle(puzzleChoice).getPhase() == 2) {
 					printPuzzleText(puzzleChoice);
 				}
 				//if they have already completed the puzzle then give them the output that reminds them of what they learned from completing that puzzle.
@@ -74,23 +76,33 @@ public class textInterface {
 		System.out.println("This concludes the demo");
     }
 
-	//takes which puzzle option the user gave as input, prints the puzzle's challenge, and lets them guess the answer
+	//takes which puzzle option the user gave as input, prints the puzzle's challenge, and lets them guess the answer, exit back to the previous menu, or get a hint
 	public void tryPuzzle(int puzzleChoice) {
 		printPuzzleText(puzzleChoice);
-		puzzleActualAnswer = currentRoom.roomPuzzles.getSolution(roomNumber, puzzleChoice);
+		puzzleActualAnswer = currentRoom.roomPuzzles.getPuzzle(puzzleChoice).getSolution();
 		boolean stillGuessing = true;
 		while (stillGuessing == true) {
 			puzzleUserAnswer = chooseStringOption();
+			//back to previous menu
 			if (puzzleUserAnswer.equals("exit")) {
 				stillGuessing = false;
 			}
+			//give normal hint
+			else if (puzzleUserAnswer.equals("hint")){
+				System.out.println(currentRoom.roomPuzzles.getPuzzle(puzzleChoice).getHint1());
+			}
+			//give super hint
+			else if (puzzleUserAnswer.equals("super hint")){
+				System.out.println(currentRoom.roomPuzzles.getPuzzle(puzzleChoice).getHint2());
+			}
+			//they input the correct answer, so set this puzzles phase to 1 for solved, print the first time solution text
 			else if (puzzleUserAnswer.equals(puzzleActualAnswer)) {
-				currentRoom.roomPuzzles.setPhase(roomNumber, puzzleChoice, 1);
-				System.out.println(currentRoom.roomPuzzles.getSolvedText(roomNumber, puzzleChoice));
+				currentRoom.roomPuzzles.getPuzzle(puzzleChoice).setNewPhase(1);
+				System.out.println(currentRoom.roomPuzzles.getPuzzle(puzzleChoice).getSolvedText());
 				stillGuessing = false;
 			}
 			else {
-				System.out.println("Incorrect! enter 'exit' if you would like to return to the previous menu");
+				System.out.println("Incorrect!\nEnter 'exit' to return the previous menu, 'hint' for a hint, or 'super hint' for an extra helpful hint");
 			}
 		}
 	}
@@ -99,8 +111,9 @@ public class textInterface {
 	public boolean completionTest() {
 		Boolean uncomplete = true;
 		int i;
+		//if any puzzles are in phase 0 then there's at least 1 puzzle unifinished, so the room is not complete
         for (i = currentRoom.puzzleMin;i <= currentRoom.puzzleMax; i++) {
-            if (currentRoom.roomPuzzles.getPhase(roomNumber, i) == 0) {
+            if (currentRoom.roomPuzzles.getPuzzle(i).getPhase() == 0) {
 				uncomplete = true;
 				i = currentRoom.puzzleMax;
 			}
@@ -116,7 +129,7 @@ public class textInterface {
 
 	//prints the puzzle's current output text.
     public void printPuzzleText(int puzzleChoice) {
-        System.out.println(currentRoom.roomPuzzles.getText(roomNumber, puzzleChoice));
+        System.out.println(currentRoom.roomPuzzles.getPuzzle(puzzleChoice).getPuzzleText());
     }
 
 	//prints all the puzzle options that the user can examine, including the try to exit and give up options.
@@ -124,7 +137,7 @@ public class textInterface {
 		int i;
 		System.out.println("Please choose one of the following options:");
         for (i = currentRoom.puzzleMin;i <= currentRoom.puzzleMax; i++) {
-            System.out.println(Integer.toString(i)+". Examine "+currentRoom.roomPuzzles.getName(roomNumber, i));
+            System.out.println(Integer.toString(i)+". Examine "+currentRoom.roomPuzzles.getPuzzle(i).getChallengeName());
 		}
 		System.out.println(Integer.toString(i)+ ". Try to exit the room and move to the next room");
 		System.out.println(Integer.toString(i+1)+ ". Give up");
@@ -134,17 +147,8 @@ public class textInterface {
 	entryMessage is used to display an entry message when the player enters a new room.
 	the purpose of the roomNumber is to keep track of which room they are in.
 	*/
-	public void entryMessage(int roomNumber) {
-		if (roomNumber == 0) {
-			System.out.println("You step into the demo room.");
-		}
-		else if (roomNumber == 1){
-			System.out.println("You step into the first room.");
-		} else if (roomNumber == 2) {
-			System.out.println("You step into the second room.");
-		} else if (roomNumber == 3) {
-			System.out.println("You step into the third room.");
-		}
+	public void entryMessage() {
+		System.out.println(currentRoom.entryText);
 	}
 
 	//chooseIntOption is used when we need the player to enter an integer as input.
@@ -170,7 +174,7 @@ public class textInterface {
 				System.out.println("Please enter a string: ");
 			}
 		
-		String pickedOption = keyboard2.nextLine();		
+		String pickedOption = keyboard2.nextLine().toLowerCase();		
 		return pickedOption;
 		
 	}
