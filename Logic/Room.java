@@ -13,10 +13,14 @@ public class Room {
         if (roomNumberInput == 0) {
             puzzleMin=1;
             puzzleMax=3;
-            roomNumber = roomNumberInput;
             entryText = "You walk into the Demo room.";
         }
-
+        else if (roomNumberInput == 1) {
+            puzzleMin=1;
+            puzzleMax=4;
+            entryText = "You walk into the first room.\nThe walls are matte black, with randomized TEXT sprawled along them. In front of you is a simple TERMINAL, with the single prompt in plain white text: “PASSWORD:”. \nTo your right is a small rectangular black BOX. A LOCK is placed on it, and the BOX is immovable. On your left is a stack of BOOKS of various sizes and lengths.";
+        }
+        roomNumber = roomNumberInput;
         roomPuzzles = new PuzzleList(roomNumber);
     }
 }

@@ -17,7 +17,7 @@ public class textInterface {
 	//constructor, does all the one time operations at the start(whatever that ends up being) and starts up the first room.
 	public textInterface() {
         //0 for demo room, 1 for actual gameplay
-        roomNumber=0;
+        roomNumber=1;
         currentRoom = new Room(roomNumber);
     }
     
@@ -46,7 +46,7 @@ public class textInterface {
 					System.out.println("you cannot currently exit the room");
 				}
 				//if they have completed all the puzzles and are in the demo room, room 0, or the last room, (currently) room 3, then they have won and get to escape
-				else if (roomNumber == 0 || roomNumber == 3) {
+				else if (roomNumber == 1) {
 					System.out.println("You were able to exit the room.");
 					System.out.println("Congratulations, you have escaped!");
 					stillPlaying = false;
@@ -54,6 +54,7 @@ public class textInterface {
 				//if they have completed all the puzzles but arent in the demo room or last room, move to the next room, print the intro message for the next room.
 				else {
 					roomNumber++;
+					currentRoom = new Room(roomNumber);
 					entryMessage();
 					//set room = new room(new roomnumber)
 				}
@@ -73,7 +74,7 @@ public class textInterface {
 				else {printPuzzleText(puzzleChoice);}
 			}
 		}
-		System.out.println("This concludes the demo");
+		System.out.println("This concludes the Game");
     }
 
 	//takes which puzzle option the user gave as input, prints the puzzle's challenge, and lets them guess the answer, exit back to the previous menu, or get a hint
@@ -102,7 +103,8 @@ public class textInterface {
 				stillGuessing = false;
 			}
 			else {
-				System.out.println("Incorrect!\nEnter 'exit' to return the previous menu, 'hint' for a hint, or 'super hint' for an extra helpful hint");
+				System.out.println(currentRoom.roomPuzzles.getPuzzle(puzzleChoice).getIncorrectText());
+				System.out.println("Enter 'exit' to return the previous menu, 'hint' for a hint, or 'super hint' for an extra helpful hint");
 			}
 		}
 	}
