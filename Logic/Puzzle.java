@@ -11,10 +11,12 @@ public class Puzzle {
     private String hintText2;   //super hint
     private String incorrectText;   //the text output when the user inputs the incorrect answer, defaults to incorrect! and can be overwritten per puzzle for a custom output.
 
-    //how to add a new puzzle:add the puzzle here with its texts and solution, create new puzzle object (ex. p1, puzzle 1) in puzzleList if this puzzle's number is higher than the highest already in puzzleList (currently 4) as well as getPuzzle, then update the puzzleMax in Room
+    //how to add a new puzzle:add the puzzle here with its texts and solution, create new puzzle object (ex. p1, puzzle 1) in puzzleList if this puzzle's number is higher than the highest already in puzzleList (currently 5) as well as getPuzzle, then update the puzzleMax in Room
     public Puzzle(int roomNumber, int puzzleNumber) {
         //demo room puzzles
         incorrectText = "Incorrect!";
+        hintText1 = "No hints for this one";
+        hintText2 = "No super hint available, sorry chief";
         if (roomNumber == 0 && puzzleNumber == 1){
             phase = 0;
             challengeName = "the first demo puzzle";
@@ -41,6 +43,7 @@ public class Puzzle {
             challengeText = "the picture is a poster of a cat, saying 'Math is Fun!'";
         }
 
+        //room 1
         else if (roomNumber == 1 && puzzleNumber == 1) {
             phase = 2;
             challengeName = "the books";
@@ -79,6 +82,83 @@ public class Puzzle {
             solution = "mocha12!";
             incorrectText = "After typing in your answer and pressing enter, the following is printed: “Incorrect. Try again.” And then returns to the previous prompt.";
         }
+
+        //room 2
+        else if (roomNumber == 2 && puzzleNumber == 1) {
+            phase = 2;
+            challengeName = "the table";
+            challengeText = "It appears to be a conversion table, in which different numbers could be converted to other different numbers… you suppose.\nhttp://www.asciitable.com/\nThank heavens you actually understand this, however, for the uninitiated, there are also a set of INSTRUCTIONS written below the table.";
+        }
+        else if (roomNumber == 2 && puzzleNumber == 2) {
+            phase = 2;
+            challengeName = "the instructions";
+            challengeText = "There are four main columns you should be concerned about.\nThere is decimal, ‘Dec’, in base 10, which are standard counting numbers, which have no prefix.\nThere is octet, ‘Oct’, in which the base number is 8, most notably used in permission notations, and has the ‘0o’ prefix.\nThere is hex, ‘Hx’, in base 16, usually used to simplify notations, occasionally used in colours, with the ‘0x’ prefix.\nLastly is ‘Char’, which relates to ASCII, used in basic text.";
+        }
+        else if (roomNumber == 2 && puzzleNumber == 3) {
+            phase = 2;
+            challengeName = "the pedestal";
+            challengeText = "On the hexagonal pedestal is five KEYHOLES of similar size, split evenly across the six sections of the room, barring one section facing the opposite door, in which a KEYBOARD is placed, and a simple screen above it. There is also a piece of paper which has a conversion TABLE placed on it. On each side of the pedestal, a simple gold plaque. In a counter-clockwise direction, the engravings on each plaque lists:\n‘0x65’\n‘0x63’\n‘0x69’\n‘0x6c’\n‘0x41’";
+        }
+        else if (roomNumber == 2 && puzzleNumber == 4) {
+            phase = 2;
+            challengeName = "the keyholes";
+            challengeText = "A set of keyholes placed inside of the PEDESTAL in the center. It seems each keyhole is the same, but once a key is placed inside, it would be locked in place, and could not be removed.";
+        }
+        else if (roomNumber == 2 && puzzleNumber == 5){
+            phase = 0;
+            challengeName = "the keyboard";
+            challengeText = "A simple keyboard in-laid in the PEDESTAL. While there is no full-sized monitor attached to it, an LED screen is directly above it, with a prompt saying “INPUT:”";
+            hintText1 = "the input seems to require some sort of sequence of ASCII characters";
+            hintText2 = "The more you know: Hex characters can represent ASCII characters";
+            //note: change the total amount of scrolls at the end of this text depending on how many rooms there are total in this section, would also require changes pretty much everywhere after room 2
+            solvedText = "You type in “Alice”. After submitting your answer, a small compartment opens in the center of the PEDESTAL. A simple SCROLL rises from the compartment, small enough to be held in your hand.\nUpon picking it up, the compartment becomes hidden once again, hiding whatever secrets it holds back into the PEDESTAL. The SCROLL reads as follows:\n“Prologue: In a certain town, in a certain street, on a certain time, there lived a group of neighbors, and, quite possibly, a group of friends. However, at this certain time, in this certain street, in this certain town, this group is quite suspicious of one another. One of these people is Eve. Eve was your run-of-the-mill person, liked your everyday things, and liked her everyday life. However, one hobby she has is gossip. \nShe desires gossip to such a level that she tends to spy on her neighbors to learn anything and everything she could ever want. Two people in particular are her neighbors on the same street, Alice, who lives next to her, and Bob, who lives across. Every morning, Eve looks out the window to find a box on Bob’s door, and every night, she finds Alice writing something to put in a box. \nOn this very day, she decides to find out what is in this box.”\nUpon finishing reading this, SCROLLS of similar size are risen from the PEDESTAL once more, colour-coded to each section of the room. There are 5 in total";
+            rewardText = "You have your 5 scrolls and you're ready to set off into the first of the wedge rooms.";
+            solution = "alice";
+            incorrectText = "Nothing happens. Figures.";
+        }
+
+        //room 3
+        else if (roomNumber == 3 && puzzleNumber == 1) {
+            phase = 2;
+            challengeName = "the toolkit";
+            challengeText = "A toolkit meant to be fit inside of a pocket. It includes your basic tools: A screwdriver, hammer, wrench, pliers, the like. There doesn’t appear to be anything of particular interest. \nHowever, upon closer inspection, once all of the tools are removed, an inscription in the back of the box reads: “Remember: An attackers greatest tool is their ingenuity. The easiest way in is the way to go!”";
+        }
+        else if (roomNumber == 3 && puzzleNumber == 2){
+            phase = 0;
+            challengeName = "the drawer";
+            challengeText = "A small drawer, about waist height, with three COMPARTMENTS. While the top and bottom parts are completely empty, the middle has a PADLOCK attached to it. There are screws attached to the drawer, rendering the removal of the compartment impossible. \nYou decide to give each compartment a number, the name the top one 1, the middle 2, and the bottom 3.\nApart from the compartments feeling loose, nothing else strikes you about the drawer is odd.\n You attempt to use the various tools in the toolkit, but you don’t have a strong desire to destroy the drawer, however, if you do, you’re pretty sure that the owner of the drawer would be very upset with you, and so, you restrain yourself. \nApart from destruction, the toolkit’s various tools seem to be of no effect. You might think a screwdriver would work on the lock, but the screw head appears to be different.\n You decide that your best course of action will be to try to do something nondestructive with the compartments";
+            hintText1 = "when solving a problem it often helps to follow the RCN principle. Remove Compartmentalize Number. Remove unhelpful things, Compartmentalize the problem, Number.";
+            hintText2 = "if there were a 5th compartment in this drawer and it were full of stinky cheese, I would probably want to Remove Compartment 5 to get rid of the stank";
+            solvedText = "You remove the upper section of the drawer with ease, granting you access to the middle section of the drawer. Within the drawer is a KEY to the PEDESTAL, and a sheet of paper, which oddly seems to have a rip across the top that is the same shape as the rip across the bottom of your first scroll, weird. It reads:\n“It turns out, that Eve did not need the toolkit at all! It only took her wits and creativity to get to her drawer. Now that she could reach what was inside, she took out a special decoder. She never could fully remember the code, and since the code was rewritten every time it was used, this decoder could calculate even the strangest of problems.”\nYou take the key and sheet of paper, and return the compartment back to its rightful place.";
+            rewardText = "Having gotten everything you need out of it, you take a moment to appreciate the varnish on the wooden drawer. Beautifully done.";
+            solution = "remove compartment 1";
+            incorrectText = "Unfortunately you're no closer to a solution";
+        }
+
+        //room 4
+        else if (roomNumber == 4 && puzzleNumber == 1) {
+            phase = 2;
+            challengeName = "the first plaque";
+            challengeText = "A simple metal plaque to the left of the SWITCHES. It contains a variety of names and numbers.\nAlice:\n01000001 01101100 01101001 01100011 01100101\nBob:\n01000010 01101111 01100010\nCarol:\n01000011 01100001 01110010 01101111 01101100\nDave:\n01000100 01100001 01110110 01100101\nEve:\n01000101 01110110 01100101\nFaye:\n01000110 01100001 01111001 01100101\nPip:\n01010000 01101001 01110000";
+        }
+        else if (roomNumber == 4 && puzzleNumber == 2) {
+            phase = 2;
+            challengeName = "the second plaque";
+            //text formatting with the table here works for me, may or may not work for everyone
+            challengeText = "A simple metal plaque to the right of the SWITCHES. You find yourself looking at the truth tables of logical operations. \nFour basic ones are shown, an AND operator, an OR operator, an XOR operator (called exclusive or), and a NOT operator.\nA |  B |    A AND B	    A |  B |     A OR B		A |  B |    A XOR B	    A |     NOT A	    \n0 |  0 |       0      	    0 |  0 |       0      	0 |  0 |       0      	    0 |       1      	\n0 |  1 |       0      	    0 |  1 |       1      	0 |  1 |       1      	    1 |       0      	\n1 |  0 |       0      	    1 |  0 |       1      	1 |  0 |       1      	                    \n1 |  1 |       1            1 |  1 |       1      	1 |  1 |       0      	                    "; 
+        }
+        else if (roomNumber == 4 && puzzleNumber == 3){
+            phase = 0;
+            challengeName = "the switches";
+            challengeText = "A large array of switches, in three rows of eight. Each one has an ‘on’ position and an ‘off’ position. A red BUTTON is placed underneath. Whenever a switch is flipped to the ‘on’ position, a corresponding light is turned on. Currently, the switches are on in the following positions:\n00000000 00000000 00000000";
+            hintText1 = "You find it interesting how the firt plaque has arrays of numbers, and the switches are also represented as arrays of numbers";
+            hintText2 = "remember what you read earlier? exclusively bob or eve can use they keycard. Additionally you may note that with the light switches and plaque numbers, there's a space between every 8 binary digits";
+            solvedText = "You push the button, and then, from where the button is, splits in half, opening up into a small crevice inside, holding a KEY and a SCROLL. It reads:\n“To unlock the secrets of the card, she went back inside and went on her computer. With her expertise in finding information, she was able to obtain the information with ease. Within it, holds some item, inaccessible in its current form, a type of virtual lock on it. \nHowever, Eve does know it could be one of two things; Something for Bob, or something for herself. ‘Curious,’ she thinks. What might Alice be thinking into giving this? What could it possibly mean? \nPerhaps it has to do with the box? With this information in hand, she puts the card away in her pocket, and once again, pursues the box.”\nYou take the key and scroll, satisfied with the results at hand.";
+            rewardText = "You stand back and enjoy the new lighting arrangement you've created";
+            solution = "00000111 00011001 00000111";
+            incorrectText = "You flip the following switches, and the lights turn on or off respectively, but when you push the button nothing seems to happen";
+        }
+
     }
 
 

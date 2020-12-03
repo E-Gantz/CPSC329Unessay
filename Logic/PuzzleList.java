@@ -8,6 +8,7 @@ public class PuzzleList {
     Puzzle p2;
     Puzzle p3;
     Puzzle p4;
+    Puzzle p5;
 
     //constructor for the puzzleList object, sets the puzzles according to which room is being constructed.
     public PuzzleList(int roomNumber) {
@@ -24,10 +25,20 @@ public class PuzzleList {
             p4 = new Puzzle(roomNumber, 4);
         }
         else if (roomNumber == 2) {
-            
+            p1 = new Puzzle(roomNumber, 1);
+            p2 = new Puzzle(roomNumber, 2);
+            p3 = new Puzzle(roomNumber, 3);
+            p4 = new Puzzle(roomNumber, 4);
+            p5 = new Puzzle(roomNumber, 5);
         }
         else if (roomNumber == 3) {
-            
+            p1 = new Puzzle(roomNumber, 1);
+            p2 = new Puzzle(roomNumber, 2);
+        }
+        else if (roomNumber == 4) {
+            p1 = new Puzzle(roomNumber, 1);
+            p2 = new Puzzle(roomNumber, 2);
+            p3 = new Puzzle(roomNumber, 3);
         }
 
         
@@ -46,6 +57,9 @@ public class PuzzleList {
         }
         else if (puzzleChoice == 4) {
             return p4;
+        }
+        else if (puzzleChoice == 5) {
+            return p5;
         }
         else {return p0;}
     }
