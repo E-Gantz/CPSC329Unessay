@@ -40,6 +40,22 @@ public class PuzzleList {
             p2 = new Puzzle(roomNumber, 2);
             p3 = new Puzzle(roomNumber, 3);
         }
+        else if (roomNumber == 5) {
+            p1 = new Puzzle(roomNumber, 1);
+            p2 = new Puzzle(roomNumber, 2);
+            p3 = new Puzzle(roomNumber, 3);
+        }
+        else if (roomNumber == 6) {
+            p1 = new Puzzle(roomNumber, 1);
+            p2 = new Puzzle(roomNumber, 2);
+            p3 = new Puzzle(roomNumber, 3);
+            p4 = new Puzzle(roomNumber, 4);
+        }
+        else if (roomNumber == 7) {
+            p1 = new Puzzle(roomNumber, 1);
+            p2 = new Puzzle(roomNumber, 2);
+            p3 = new Puzzle(roomNumber, 3);
+        }
 
         
     }

@@ -13,10 +13,16 @@ public class Puzzle {
 
     //how to add a new puzzle:add the puzzle here with its texts and solution, create new puzzle object (ex. p1, puzzle 1) in puzzleList if this puzzle's number is higher than the highest already in puzzleList (currently 5) as well as getPuzzle, then update the puzzleMax in Room
     public Puzzle(int roomNumber, int puzzleNumber) {
+        /* you may be wondering: Why are these all hard coded, when IO could be used?
+            well, the justification is that real life escape rooms are physically built in a room, and are very rarely changed or updated
+            so, in a way, real life escape rooms are also hard coded
+        */
+
+        incorrectText = "Incorrect!";   //default setting
+        hintText1 = "No hints for this one";    //default setting
+        hintText2 = "No super hint available, sorry chief"; //default setting, chief
+
         //demo room puzzles
-        incorrectText = "Incorrect!";
-        hintText1 = "No hints for this one";
-        hintText2 = "No super hint available, sorry chief";
         if (roomNumber == 0 && puzzleNumber == 1){
             phase = 0;
             challengeName = "the first demo puzzle";
@@ -159,9 +165,82 @@ public class Puzzle {
             incorrectText = "You flip the following switches, and the lights turn on or off respectively, but when you push the button nothing seems to happen";
         }
 
+        //room 5
+        else if (roomNumber == 5 && puzzleNumber == 1) {
+            phase = 2;
+            challengeName = "the Chair";
+            challengeText = "";
+        }
+        else if (roomNumber == 5 && puzzleNumber == 2) {
+            phase = 2;
+            challengeName = "the Television";
+            challengeText = "";
+        }
+        else if (roomNumber == 5 && puzzleNumber == 3) {
+            phase = 0;
+            challengeName = "the Dials";
+            challengeText = "";
+            hintText1 = "";
+            hintText2 = "";
+            solvedText = "";
+            rewardText = "";
+            solution = "";
+            incorrectText = "";
+        }
+
+        //room 6
+        else if (roomNumber == 6 && puzzleNumber == 1) {
+            phase = 2;
+            challengeName = "the first table";
+            challengeText = "";
+        }
+        else if (roomNumber == 6 && puzzleNumber == 2) {
+            phase = 2;
+            challengeName = "the second table";
+            challengeText = "";
+        }
+        else if (roomNumber == 6 && puzzleNumber == 3) {
+            phase = 2;
+            challengeName = "the third table";
+            challengeText = "";
+        }
+        else if (roomNumber == 6 && puzzleNumber == 4) {
+            phase = 0;
+            challengeName = "the Panel";
+            challengeText = "";
+            hintText1 = "";
+            hintText2 = "";
+            solvedText = "";
+            rewardText = "";
+            solution = "";
+            incorrectText = "";
+        }
+
+        //room 7
+        else if (roomNumber == 7 && puzzleNumber == 1) {
+            phase = 2;
+            challengeName = "the Door";
+            challengeText = "";
+        }
+        else if (roomNumber == 7 && puzzleNumber == 2) {
+            phase = 2;
+            challengeName = "the Letterbox";
+            challengeText = "";
+        }
+        else if (roomNumber == 7 && puzzleNumber == 3) {
+            phase = 0;
+            challengeName = "the Padlock";
+            challengeText = "";
+            hintText1 = "";
+            hintText2 = "";
+            solvedText = "";
+            rewardText = "";
+            solution = "";
+            incorrectText = "";
+        }
+
+        //That's it for us! However, dear reader, feel free to add more rooms or change existing ones! blank templates are below
     }
-
-
     /*
     else if (roomNumber == x && puzzleNumber == y){
             phase = 0;
@@ -179,6 +258,8 @@ public class Puzzle {
             challengeName = "";
             challengeText = "";
         }*/
+
+
 
     //constructor for puzzle 0, which is used for errors.
     public Puzzle(int defaultNum) {
