@@ -55,6 +55,7 @@ public class textInterface {
 				else {
 					roomNumber++;
 					currentRoom = new Room(roomNumber);
+					roomFinished = false;
 					entryMessage();
 					//set room = new room(new roomnumber)
 				}
