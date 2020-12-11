@@ -46,7 +46,7 @@ public class textInterface {
 					System.out.println("you cannot currently exit the room");
 				}
 				//if they have completed all the puzzles and are in the demo room, room 0, or the last room, (currently) room 4, then they have won and get to escape
-				else if (roomNumber == 0 || roomNumber == 4) {
+				else if (roomNumber == 0 || roomNumber == 8) {
 					System.out.println("You were able to exit the room.");
 					System.out.println("Congratulations, you have escaped!");
 					stillPlaying = false;

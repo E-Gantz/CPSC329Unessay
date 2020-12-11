@@ -169,74 +169,118 @@ public class Puzzle {
         else if (roomNumber == 5 && puzzleNumber == 1) {
             phase = 2;
             challengeName = "the Chair";
-            challengeText = "";
+            challengeText = "A plain wooden chair. It sits squarely in front of the TELEVISION, with nothing else around it. So creepy, you believe, the light reflecting off the chair’s surface. \nThe chair itself is worn down, scratches and cuts all over it. All around it are various engravings. On the backrest has “Z” on the front side, and “F” on the other. \nThe legs have one as well, “H” on the top-left and “S” on the top-right, with “R” on the bottom left” and “T” on the bottom right. On the seat itself is the letter “Y” and on the other side, the underside of the seat, is the engraving “Q”.";
         }
         else if (roomNumber == 5 && puzzleNumber == 2) {
             phase = 2;
             challengeName = "the Television";
-            challengeText = "";
+            challengeText = "A simple television set, one of the older models, a CRT, laying on the floor. This thing is too heavy to lift on your own, unmovable as CRTs tend to be. It is currently playing some video on loop. \nIt isn’t very entertaining though, the only video is one where a whole bunch of letters are flashing up on the screen every so often. Because of its looping nature, you memorize the letters eventually.\nthe message is: XubbeMehbt";
         }
         else if (roomNumber == 5 && puzzleNumber == 3) {
             phase = 0;
             challengeName = "the Dials";
-            challengeText = "";
-            hintText1 = "";
-            hintText2 = "";
-            solvedText = "";
-            rewardText = "";
-            solution = "";
-            incorrectText = "";
+            challengeText = "Two circular dials are on the wall, one outer, one inner, creating a shift decoder of sorts. Labelled around both dials are the alphabet, lettered A-Z in its standard order. The inner dial can be turned. \nIf you knock on top of the dial, you hear a hollow sound ring back. Perhaps there is more to this decoder than meets the eye. The ‘A’ letter on the outer dial is highlighted and bolded, claiming importance on the dial. \nThrough utter confusion, you decide to stick to only aligning the inner dial with the letter A - keeping track of the other letters is too confusing. It is currently set to: A=A. \n You decide to start trying letters on the inner wheel to align with A on the outer wheel.";
+            hintText1 = "You decide that taking a rest and sitting on the CHAIR may help you find the correct letter.";
+            hintText2 = "“bottom of your bottom”. So, where you sit. What is the bottom of that?";
+            solvedText = "You align Q on the inner dial with A on the outer dial, resulting in the cipher\nABCDEFGHIJKLMNOPQRSTUVWXYZ\nQRSTUVWXYZABCDEFGHIJKLMNOP\n and attempt to use the resulting cipher on the message from the television, XubbeMehbt";
+            rewardText = "you look back at the cipher\nthe cipher\nABCDEFGHIJKLMNOPQRSTUVWXYZ\nQRSTUVWXYZABCDEFGHIJKLMNOP\nand the message 'XubbeMehbt', revelling in your apparent success";
+            solution = "q";
+            incorrectText = "You attempt to align the inner dial and use the resulting cipher on the message from the television, but you end up with gibberish.";
+        }
+        else if (roomNumber == 5 && puzzleNumber == 4){
+            phase = 0;
+            challengeName = "the Console";
+            challengeText = "The console awaits an input, you suppose it wants some sort of password.";
+            hintText1 = "perhaps the password is an encoded message somewhere";
+            hintText2 = "solving the cipher with the dials may help with finding the password";
+            solvedText = "You enter the password and the console displays the message 'Correct!', and you hear a loud noise from the dials. \ndial opens up to reveal a space behind it. Upon inspection, all that is there is a KEY and a SCROLL.\n“Of course, it must mean her chair! She quickly went to her living room, and looked underneath her chair. There was a slip of paper under the leg, Eve never noticed. Perhaps she wasn’t as good at information as she had previously thought. Regardless, she read the note.\n“Hello Eve! Alice here. If you’re reading this, you’re probably trying to find out what’s in that box of ours. Well, it isn’t anything dangerous, we can assure you that. Just be careful with it, there is something really important inside! Once you do open it, please bring it over to my house, it’ll be worth it, promise. Oh, and the code to use is ‘SPECIAL”.\nHow terrible! Alice and Bob already know that Eve is trying to break into their box! They already know so much about who Eve is, and she was supposed to be the one who knows things! Feeling quite dejected over her control of information, she inserted the code word into her decoder. \nThe output ended up being ‘1234’. Ironic, she went through so much hassle for such a simple password. Putting the code into the box, the contents were finally revealed: Another box. A cake box, to be exact, from her local cake shop. Eve still does not know what’s inside however, as all she knows is, it’s a cake, or something cake-like, at least. Deciding to follow Alice’s instructions, she begins to bring the box to Alice’s house.”\n with the puzzle solved, you head on to the next room";
+            rewardText = "you sit back and admire you handywork, good work, you!";
+            solution = "helloworld";
+            incorrectText = "you enter your guess, but the console displays the message 'Incorrect!' and returns to the input screen";
         }
 
         //room 6
         else if (roomNumber == 6 && puzzleNumber == 1) {
             phase = 2;
             challengeName = "the first table";
-            challengeText = "";
+            challengeText = "A simple round table, about waist height with a digital monitor on top. On the table has the plaque: “LOCK”. Five series of numbers are displayed on the monitor:\n-0, 0, 0, 0, 0\n-0, 9, 9, 9, 0\n-9, 0, 9, 0, 9\n-9, 0, 0, 9, 0\n-9, 9, 9, 9, 9";
         }
         else if (roomNumber == 6 && puzzleNumber == 2) {
             phase = 2;
             challengeName = "the second table";
-            challengeText = "";
+            challengeText = "A simple round table, about waist height with a digital monitor on top. On the table has the plaque: “KEY”. There are only question marks on this monitor:\n??, ??, ??, ??, ??";
         }
         else if (roomNumber == 6 && puzzleNumber == 3) {
             phase = 2;
             challengeName = "the third table";
-            challengeText = "";
+            challengeText = "A simple round table, about waist height with a digital monitor on top. On the table has the plaque: “MESSAGE”. \nA series of numbers is displayed on the monitor: 14,7,17,9,11";
         }
         else if (roomNumber == 6 && puzzleNumber == 4) {
             phase = 0;
             challengeName = "the Panel";
-            challengeText = "";
-            hintText1 = "";
-            hintText2 = "";
-            solvedText = "";
-            rewardText = "";
-            solution = "";
-            incorrectText = "";
+            challengeText = "Five BUTTONS line the panel. Above each button, a series of numbers are displayed.\n-Button 1: 0, 0, 0, 0, 0\n-Button 2: 0, 9, 9, 9, 0\n-Button 3: 9, 0, 9, 0, 9\n-Button 4: 9, 0, 0, 9, 0\n-Button 5: 9, 9, 9, 9, 9\nAt the top of the panel is the plaque: “UNLOCK”. A set of instructions is laid below.\n“A message from table 1 is chosen, with numbers 0 and 9, such that it is added from the mystery sequence on table 2, with numbers 0-12. The result is what is displayed on table 3. So, Table 1 + Table 2 = Table 3. What is the randomly chosen message from table 1?";
+            hintText1 = "input should be of the form: 'button x', where x is a number. Randomly guessing might get you the answer if you’re desperate. However, there is a trick to it. \nSince table 1 can only be 0 or 9, there should be a limit to how far the message in table 3 can be, if you add table 1 and table 2 together.";
+            hintText2 = "If you can find numbers past 12 or below 9 in table 3, then that must force the answer.";
+            solvedText = "You push the button. Every display says: “CORRECT, EJECTING…” After a few seconds, a compartment slides out from below the panel. In it holds a key and a scroll.\n“Eve was able to figure out the key, it wasn’t as difficult as it seemed. Once she realized that the message did go past 12, the message was easier to find. With the message decoded, she was able to enter Alice’s house. \nWhat did Alice want with her, and why did Eve have to bring Alice the item? It was sent to Bob, didn’t it? Why didn’t he send it? Regardless, Eve got the front door to open, and she could enter inside.”\nwith the puzzle solved, you head to the next room";
+            rewardText = "Before you go, you look at the buttons and reflect, a job well done indeed";
+            solution = "button 3";
+            incorrectText = "You push the button. Every display says: “INCORRECT, RESETTING.” It seems you got it wrong,";
         }
 
         //room 7
         else if (roomNumber == 7 && puzzleNumber == 1) {
             phase = 2;
             challengeName = "the Door";
-            challengeText = "";
+            challengeText = "A small wooden door, so small in fact, that only your arm can fit through. The door is locked however, with a 4-number combination LOCK. A LETTERBOX is screwed onto the front.";
         }
         else if (roomNumber == 7 && puzzleNumber == 2) {
             phase = 2;
             challengeName = "the Letterbox";
-            challengeText = "";
+            challengeText = "A metal letterbox screwed onto a small door. Upon looking inside, you see a torn page of a manual, however, the page itself is laiden with holes and stains, making some of the text unreadable.\n“---X base- systems use a per--ssion system in ---h of its f--es. This can be re---sented in base-8 or ba---2 nu---ation. The basic l-----t in whic- -ase-2 -----entation is as --llows:\n---Rwx--xrwx\nWhe-- -=read, w=wri--, and x=e-----e. The r---t-most gr--- of three b--s are the per----ions for three differ--- cl---es. The first is f-- --e user, the second for t-- --oup, and the th--d for others. The l--t-most bit- are --ed in sp--ial c--es, and by d---ult, is s-t to 0. Each g--up of th--- bits in base-2 can be c--verted to a si-gle base-8 d--it.”";
         }
         else if (roomNumber == 7 && puzzleNumber == 3) {
             phase = 0;
             challengeName = "the Padlock";
-            challengeText = "";
-            hintText1 = "";
-            hintText2 = "";
-            solvedText = "";
-            rewardText = "";
-            solution = "";
-            incorrectText = "";
+            challengeText = "Second verse, same as the first. Another combination lock, except this time, goes to four numbers. The password is not something like 1234, unfortunately.";
+            hintText1 = "the notes give a hint as to how to solve the room. This one talks about users, groups, and others. Who would be what in this case?";
+            hintText2 = "Here is the un-ruined text:\n“UNIX based systems use a permission system in each of its files. This can be represented in base-8 or base-2 numeration. The basic layout in which base-2 representation is as follows:\n---Rwxrwxrwx\nWhere r=read, w=write, and x=execute. The right-most group of three bits are the permissions for three different classes. The first is for the user, the second for the group, and the third for others. The left-most bits are used in special cases, and by default, is set to 0. Each group of three bits in base-2 can be converted to a single base-8 digit.”";
+            solvedText = "You put the numbers in, and with a click, you pop the lock off. You attempt to open the door, in which it does so effortlessly. Inside is a dark recess with a key and scroll in the back. You reach in, and you barely come into contact with it. After a small while struggling to reach, you successfully obtain the key and scroll.\n“Being able to open the basement door, Eve stepped inside, and down the steps she went. It was dark, Eve couldn’t see her feet on the ground. She blindly wandered around the basement, attempting to find a light source of some kind. She eventually found one, a light bulb switch above her. Pulling on it, the room sprang to life. BANG!\n“Surprise! Happy birthday, Eve!”\nAlice and Bob popped up in front of Eve, giving no evidence as to their hiding location. What was happening? A birthday? For Eve? Upon reflection, Eve was so absorbed in the secrets of the box she remembered - oh, right! How could she forget? It was Eve’s birthday today, no wonder she couldn’t find those two. They must have prepared while Eve was puzzling out the way over here. “Here, have some of that cake you brought over!... Oh, right, locked, my bad. I love locks, don’t you know?” She does, Eve believes. “In any case, once again, happy birthday!” Eve then spends the rest of the day (night?) with Alice and Bob, celebrating her birthday. The end.”\nConcluding with the puzzle, you pocket the key and the scroll, and having finished each of the wedge rooms, the door leads back to the center room.";
+            rewardText = "You've really done it, also: remember to stay hydrated! Homies don't let homies dehydrate";
+            solution = "0751";
+            incorrectText = "You tried to put in your numbers, but the lock will not budge. Good thing you didn't try to use the combination: 1234 , that would be embarassing, really really embarassing.";
+        }
+
+        //room 8
+        else if (roomNumber == 8 && puzzleNumber == 1) {
+            phase = 2;
+            challengeName = "the table";
+            challengeText = "It appears to be a conversion table, in which different numbers could be converted to other different numbers… you suppose.\nhttp://www.asciitable.com/\nThank heavens you actually understand this, however, for the uninitiated, there are also a set of INSTRUCTIONS written below the table.";
+        }
+        else if (roomNumber == 8 && puzzleNumber == 2) {
+            phase = 2;
+            challengeName = "the instructions";
+            challengeText = "There are four main columns you should be concerned about.\nThere is decimal, ‘Dec’, in base 10, which are standard counting numbers, which have no prefix.\nThere is octet, ‘Oct’, in which the base number is 8, most notably used in permission notations, and has the ‘0o’ prefix.\nThere is hex, ‘Hx’, in base 16, usually used to simplify notations, occasionally used in colours, with the ‘0x’ prefix.\nLastly is ‘Char’, which relates to ASCII, used in basic text.";
+        }
+        else if (roomNumber == 8 && puzzleNumber == 3) {
+            phase = 2;
+            challengeName = "the pedestal";
+            challengeText = "On the hexagonal pedestal is five KEYHOLES of similar size, split evenly across the six sections of the room, barring one section facing the opposite door, in which a KEYBOARD is placed, and a simple screen above it. There is also a piece of paper which has a conversion TABLE placed on it. On each side of the pedestal, a simple gold plaque. In a counter-clockwise direction, the engravings on each plaque lists:\n‘0x65’\n‘0x63’\n‘0x69’\n‘0x6c’\n‘0x41’";
+        }
+        else if (roomNumber == 8 && puzzleNumber == 4) {
+            phase = 0;
+            challengeName = "the keyholes";
+            challengeText = "A set of keyholes placed inside of the PEDESTAL in the center. It seems each keyhole is the same, but once a key is placed inside, it would be locked in place, and could not be removed.";
+            hintText1 = "place keys";
+            hintText2 = "place keys";
+            solvedText = "You place all the keys you've collected on your journey into the keyholes, you also notice a door hidden in the wall that you had not seen before.";
+            rewardText = "congrats!";
+            solution = "place keys";
+            incorrectText = "try placing the keys you've collected.";
+        }
+        else if (roomNumber == 8 && puzzleNumber == 5){
+            phase = 2;
+            challengeName = "the keyboard";
+            challengeText = "A simple keyboard in-laid in the PEDESTAL. While there is no full-sized monitor attached to it, an LED screen is directly above it, the screen still says 'unlocked' from when you were here earlier.";
         }
 
         //That's it for us! However, dear reader, feel free to add more rooms or change existing ones! blank templates are below

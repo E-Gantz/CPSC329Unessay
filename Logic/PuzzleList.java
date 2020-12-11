@@ -44,6 +44,7 @@ public class PuzzleList {
             p1 = new Puzzle(roomNumber, 1);
             p2 = new Puzzle(roomNumber, 2);
             p3 = new Puzzle(roomNumber, 3);
+            p4 = new Puzzle(roomNumber, 4);
         }
         else if (roomNumber == 6) {
             p1 = new Puzzle(roomNumber, 1);
@@ -55,6 +56,13 @@ public class PuzzleList {
             p1 = new Puzzle(roomNumber, 1);
             p2 = new Puzzle(roomNumber, 2);
             p3 = new Puzzle(roomNumber, 3);
+        }
+        else if (roomNumber == 8) {
+            p1 = new Puzzle(roomNumber, 1);
+            p2 = new Puzzle(roomNumber, 2);
+            p3 = new Puzzle(roomNumber, 3);
+            p4 = new Puzzle(roomNumber, 4);
+            p5 = new Puzzle(roomNumber, 5);
         }
 
         
